@@ -1,0 +1,24 @@
+@keyframes gradientAnimation {
+  0% {
+    color: #821107; /* Начальный цвет */
+  }
+  50% {
+    color: #e2a223; /* Средний цвет */
+  }
+  100% {
+    color: #e2db23; /* Конечный цвет */
+  }
+}
+
+.notification {
+  /* Common */
+  text-transform: uppercase;
+  font-weight: 500;
+
+  /* Animated gradient */
+  background: linear-gradient(to right, #821107, #e2a223, #e2db23);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientAnimation 2s infinite alternate;
+}
