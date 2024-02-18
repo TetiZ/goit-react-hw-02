@@ -1,12 +1,12 @@
 @keyframes gradientAnimation {
   0% {
-    color: #821107; /* Начальный цвет */
+    color: #821107;
   }
   50% {
-    color: #e2a223; /* Средний цвет */
+    color: #e2a223;
   }
   100% {
-    color: #e2db23; /* Конечный цвет */
+    color: #e2db23;
   }
 }
 
