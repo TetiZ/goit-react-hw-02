@@ -1,0 +1,11 @@
+.btn:not(:last-child) {
+  margin-right: 8px;
+  background-color: #e8e8e8;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #b3b3b3;
+}

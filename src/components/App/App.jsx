@@ -1,5 +1,3 @@
-// import css from "./App.module.css";
-// import clsx from "clsx";
 import { useState, useEffect } from "react";
 
 import Description from "../Description/Description";
@@ -37,12 +35,6 @@ export default function App() {
     window.localStorage.setItem("scores", JSON.stringify(clicks));
   }, [clicks]);
 
-  const options = [
-    { type: "good", label: "Good" },
-    { type: "neutral", label: "Neutral" },
-    { type: "bad", label: "Bad" },
-  ];
-
   const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
   const isAnyFeedback = totalFeedback > 0;
   const percentOfPositiveFeedback = Math.round(
@@ -53,28 +45,22 @@ export default function App() {
     <>
       <Description />
 
-      {options.map((option) => (
-        <Options
-          key={option.type}
-          totalFeedback={totalFeedback}
-          updateFeedback={() => updateFeedback(option.type)}
-        >
-          {option.label}
-        </Options>
-      ))}
-
-      {isAnyFeedback && <button onClick={resetFeedback}>Reset</button>}
+      <Options updateFeedback={() => updateFeedback("good")}>Good</Options>
+      <Options updateFeedback={() => updateFeedback("neutral")}>
+        Neutral
+      </Options>
+      <Options updateFeedback={() => updateFeedback("bad")}>Bad</Options>
 
       {isAnyFeedback && (
         <>
-          {options.map((option) => (
-            <Feedback key={option.type} value={clicks[option.type]}>
-              {option.label}
-            </Feedback>
-          ))}
+          <Options updateFeedback={resetFeedback}>Reset</Options>
 
-          {`Total: ${totalFeedback}`}
-          {`Positive: ${percentOfPositiveFeedback}%`}
+          <Feedback value={clicks.good}>Good</Feedback>
+          <Feedback value={clicks.neutral}>Neutral</Feedback>
+          <Feedback value={clicks.bad}>Bad</Feedback>
+
+          <Feedback value={totalFeedback}>Total</Feedback>
+          <Feedback value={`${percentOfPositiveFeedback}%`}>Positive</Feedback>
         </>
       )}
 
