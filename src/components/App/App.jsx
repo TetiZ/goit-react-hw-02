@@ -45,16 +45,14 @@ export default function App() {
     <>
       <Description />
 
-      <Options updateFeedback={() => updateFeedback("good")}>Good</Options>
-      <Options updateFeedback={() => updateFeedback("neutral")}>
-        Neutral
-      </Options>
-      <Options updateFeedback={() => updateFeedback("bad")}>Bad</Options>
+      <Options
+        updateFeedback={(feedbackType) => updateFeedback(feedbackType)}
+        resetFeedback={resetFeedback}
+        isAnyFeedback={isAnyFeedback}
+      />
 
       {isAnyFeedback && (
         <>
-          <Options updateFeedback={resetFeedback}>Reset</Options>
-
           <Feedback value={clicks.good}>Good</Feedback>
           <Feedback value={clicks.neutral}>Neutral</Feedback>
           <Feedback value={clicks.bad}>Bad</Feedback>
