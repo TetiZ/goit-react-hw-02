@@ -52,14 +52,11 @@ export default function App() {
       />
 
       {isAnyFeedback && (
-        <>
-          <Feedback value={clicks.good}>Good</Feedback>
-          <Feedback value={clicks.neutral}>Neutral</Feedback>
-          <Feedback value={clicks.bad}>Bad</Feedback>
-
-          <Feedback value={totalFeedback}>Total</Feedback>
-          <Feedback value={`${percentOfPositiveFeedback}%`}>Positive</Feedback>
-        </>
+        <Feedback
+          clicks={clicks}
+          totalFeedback={totalFeedback}
+          percentOfPositiveFeedback={percentOfPositiveFeedback}
+        />
       )}
 
       {!isAnyFeedback && <Notification />}
